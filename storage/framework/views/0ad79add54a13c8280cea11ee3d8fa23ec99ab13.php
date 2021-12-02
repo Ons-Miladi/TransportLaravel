@@ -213,14 +213,14 @@
                     <td> <?php echo e($mission->destination); ?> </td>
                     <td> <?php echo e($mission->nom_accompagnant); ?> </td>
                     <td> <?php echo e($mission->prenom_accompagnant); ?> </td>
-                     <td  > <?php echo e(\App\Voiture::findOrFail($mission->id_voiture)->matricule); ?></td>
-                    <td><?php echo e(\App\Chauffeur::findOrFail($mission->id_chauffeur)->nom); ?>  </td>
+                     <td  > <?php echo e((\App\Voiture::find($mission->id_voiture))['matricule']); ?></td>
+                  
+                     <td><?php echo e((\App\Chauffeur::find($mission->id_chauffeur))['nom']); ?>  </td>
                     
-                    <td><?php echo e(\App\Carburant::findOrFail($mission->id_d)->numero); ?></td>
+                    <td><?php echo e((\App\Carburant::find($mission->id_d))['numero']); ?></td>
                     
-                    <td><?php echo e(\App\Carburant::findOrFail($mission->id_f)->numero); ?></td>
+                    <td><?php echo e((\App\Carburant::findOrFail($mission->id_f))['numero']); ?></td>
                     
-                     
                     
                     <td><a href="<?php echo e(route('mission.imprimer',$mission->id)); ?>">imprimer</a></td>
                     <td><a href="<?php echo e(route('mission.edit',$mission->id)); ?>">modifier</a></td>

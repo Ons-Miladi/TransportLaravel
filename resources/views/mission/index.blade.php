@@ -211,14 +211,14 @@
                     <td> {{ $mission->destination}} </td>
                     <td> {{ $mission->nom_accompagnant}} </td>
                     <td> {{ $mission->prenom_accompagnant}} </td>
-                     <td  > {{\App\Voiture::findOrFail($mission->id_voiture)->matricule}}</td>
-                    <td>{{\App\Chauffeur::findOrFail($mission->id_chauffeur)->nom}}  </td>
+                     <td  > {{(\App\Voiture::find($mission->id_voiture))['matricule']}}</td>
+                  
+                     <td>{{(\App\Chauffeur::find($mission->id_chauffeur))['nom']}}  </td>
                     
-                    <td>{{\App\Carburant::findOrFail($mission->id_d)->numero}}</td>
+                    <td>{{(\App\Carburant::find($mission->id_d))['numero']}}</td>
                     
-                    <td>{{\App\Carburant::findOrFail($mission->id_f)->numero}}</td>
+                    <td>{{(\App\Carburant::findOrFail($mission->id_f))['numero']}}</td>
                     
-                     
                     
                     <td><a href="{{route('mission.imprimer',$mission->id)}}">imprimer</a></td>
                     <td><a href="{{route('mission.edit',$mission->id)}}">modifier</a></td>
